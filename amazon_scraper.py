@@ -14,9 +14,9 @@ def check_price():
 
     price = soup.find(id="buyNewSection").get_text()
     price_str = price.strip()
-    price_float = float(price_str[1:]) * 100
+    price_float = float(price_str[1:])
 
-    if price_float < 1300:
+    if price_float < 13.00:
         send_email()
 
 def send_email():
