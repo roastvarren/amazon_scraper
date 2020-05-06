@@ -25,13 +25,13 @@ def send_email():
     server.starttls()
     server.ehlo()
 
-    server.login('michaellan.uk@gmail.com', 'hfglndjsamkdawjg')
+    server.login('email@gmail.com', 'emailpassword')
 
     subject = "PRICE CHANGE"
     body = "Check Amazon link:\n\n" + URL
     msg = f"Subject: {subject}\n\n{body}"
 
-    server.sendmail('michaellan.uk@gmail.com', 'michael.lan1010@gmail.com', msg)
+    server.sendmail('email.from@gmail.com', 'email.to@gmail.com', msg)
     print("EMAIL SUCCESSFULLY SENT")
     server.quit()
 
