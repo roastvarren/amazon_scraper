@@ -32,7 +32,7 @@ def send_email():
     msg = f"Subject: {subject}\n\n{body}"
 
     server.sendmail('michaellan.uk@gmail.com', 'michael.lan1010@gmail.com', msg)
-
+    print("EMAIL SUCCESSFULLY SENT")
     server.quit()
 
 check_price()
