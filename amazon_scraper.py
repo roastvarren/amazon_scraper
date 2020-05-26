@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 import smtplib
-import time
+import time # if user wants to automate program to regularly check price
 
-URL = 'https://www.amazon.co.uk/Code-Language-Computer-Hardware-Software/dp/0735611319?pf_rd_r=EH4GGJ95JY9D0VB6CP8S&pf_rd_p=ad1dac78-5484-4aaa-bf17-e82a62646aa9&pd_rd_r=33ef6b46-f196-4d2d-a2d1-b1074220c840&pd_rd_w=ncE49&pd_rd_wg=XH4AC&ref_=pd_gw_ci_mcx_mr_hp_d'
+URL = 'url-of-amazon-product'
 
-headers = {"User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36'}
+headers = {"User-Agent": 'insert-user-agent-here'}
 
 def check_price():
     page = requests.get(URL, headers = headers)
@@ -14,9 +14,9 @@ def check_price():
 
     price = soup.find(id="buyNewSection").get_text()
     price_str = price.strip()
-    price_float = float(price_str[1:])
+    price_float = float(price_str[1:]) # takes out £ sign
 
-    if price_float < 13.00:
+    if price_float < 13.00: # price boundary
         send_email()
 
 def send_email():
